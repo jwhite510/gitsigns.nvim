@@ -19,7 +19,8 @@ local run_diff_xdl = function(
    local a = vim.tbl_isempty(fa) and '' or table.concat(fa, '\n') .. '\n'
    local b = vim.tbl_isempty(fb) and '' or table.concat(fb, '\n') .. '\n'
 
-   return vim.diff(a, b, {
+   -- third parameter now is a boolean indicating whether or not to use linematch after calling xdiff
+   return vim.diff(a, b, true, {
       result_type = 'indices',
       algorithm = algorithm,
       indent_heuristic = indent_heuristic,
